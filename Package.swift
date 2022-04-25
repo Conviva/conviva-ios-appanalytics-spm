@@ -24,7 +24,7 @@ let package = Package(
     targets: [
         .target(
             name: "ConvivaAppAnalytics",
-            dependencies:[FMDB]
+            dependencies:["FMDB"]
         ),
         .binaryTarget(
             name: "ConvivaAppAnalyticsBinary",
