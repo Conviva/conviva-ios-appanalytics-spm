@@ -19,14 +19,15 @@ let package = Package(
         .package(
             name: "FMDB", 
             url: "https://github.com/ccgus/fmdb",
-            .upToNextMajor(from: "2.7.8"))
+            .upToNextMajor(from: "2.7.7"))
     ],
     targets: [
         .target(
             name: "ConvivaAppAnalyticsTarget",
             dependencies: [
                 .target(name: "ConvivaAppAnalytics"),.product(name: "FMDB", package: "FMDB")
-            ]
+            ],
+	    path: "PlatformExcludes"
         ),
         .binaryTarget(
             name: "ConvivaAppAnalytics",
