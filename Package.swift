@@ -19,7 +19,7 @@ let package = Package(
         .package(
             name: "FMDB", 
             url: "https://github.com/ccgus/fmdb",
-            .upToNextMinor(from: "2.7.8"))
+            .upToNextMajor(from: "2.7.8"))
     ],
     targets: [
         .target(
