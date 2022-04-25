@@ -13,7 +13,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "ConvivaAppAnalytics",
-            targets: ["ConvivaAppAnalytics","ConvivaAppAnalyticsBinary"])
+            targets: ["ConvivaAppAnalyticsTarget"])
     ],
    dependencies: [
         .package(
@@ -23,16 +23,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ConvivaAppAnalytics",
-            dependencies:["FMDB"]
+            name: "ConvivaAppAnalyticsTarget",
+            dependencies: [
+                .target(name: "ConvivaAppAnalytics"),.product(name: "FMDB", package: "FMDB")
+            ],
         ),
         .binaryTarget(
-            name: "ConvivaAppAnalyticsBinary",
+            name: "ConvivaAppAnalytics",
             url: "https://github.com/Conviva/conviva-ios-appanalytics/raw/0.2.1/Framework/ConvivaAppAnalytics.xcframework.zip",
             checksum: "c7abd09bb4a3b7f7066363c67066ace431bbd0b2cdd2769b8edd9b6482ae1345"),
-        .testTarget(
-            name: "ConvivaAppAnalyticsTests",
-            dependencies: ["ConvivaAppAnalytics"]),
-        
-     ]
 )
